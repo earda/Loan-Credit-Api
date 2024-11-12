@@ -5,8 +5,6 @@ import com.loancredit.api.loan_credit_api.model.Loan;
 import com.loancredit.api.loan_credit_api.model.LoanInstallment;
 import com.loancredit.api.loan_credit_api.repository.CustomerRepository;
 import com.loancredit.api.loan_credit_api.repository.LoanInstallmentRepository;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -78,5 +76,5 @@ public class LoanService {
         loanInstallmentRepository.saveAll(installments);
 
         return loan;
-    }
+}
 }

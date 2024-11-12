@@ -1,6 +1,6 @@
 -- Customer tablosuna veri ekleme
-INSERT INTO PUBLIC.customer (name, surname, credit_limit, used_credit_limit)
-VALUES ('John', 'Doe', 10000.00, 5000.00);
+INSERT INTO PUBLIC.customer (id,name, surname, credit_limit, used_credit_limit)
+VALUES (1,'John', 'Doe', 10000.00, 5000.00);
 
 -- Loan tablosuna veri ekleme
 INSERT INTO PUBLIC.Loan (customer_id, loan_amount, interest_rate, number_of_installments, create_date, is_paid)

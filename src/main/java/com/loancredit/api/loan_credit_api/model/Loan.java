@@ -1,9 +1,6 @@
 package com.loancredit.api.loan_credit_api.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +8,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,5 +25,11 @@ public class Loan {
     private Integer numberOfInstallment;
     private Date createDate;
     private Boolean isPaid;
+    private Double totalAmount;
+    @OneToMany(mappedBy = "loan", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private List<LoanInstallment> installments;
 
+
+    public Loan(Long customerId, Double amount, Double interestRate, Integer numberOfInstallments) {
+    }
 }

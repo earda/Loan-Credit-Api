@@ -12,7 +12,6 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
 public class LoanInstallment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,8 +21,13 @@ public class LoanInstallment {
     private String dueDate;
     private Boolean isPaid;
     @ManyToOne
-    @JoinColumn(name = "loan_id", nullable = false)
+    @JoinColumn(name = "loan_id")
     private Loan loan;
-    public LoanInstallment(Long id, Double installmentAmount, LocalDate dueDate, boolean b) {
+
+    public LoanInstallment(Long id, Double installmentAmount, LocalDate dueDate, boolean b,Loan loan) {
+    }
+
+    public LoanInstallment() {
+
     }
 }

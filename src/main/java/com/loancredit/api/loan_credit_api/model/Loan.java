@@ -25,8 +25,8 @@ public class Loan {
     private Integer numberOfInstallment;
     private Date createDate;
     private Boolean isPaid;
-    private Double totalAmount;
-    @OneToMany(mappedBy = "loan", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    private Double totalAmount=1.0;
+    @OneToMany(mappedBy = "loan", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<LoanInstallment> installments;
 
 

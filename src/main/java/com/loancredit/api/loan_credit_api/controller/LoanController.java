@@ -4,6 +4,8 @@ import com.loancredit.api.loan_credit_api.model.Loan;
 import com.loancredit.api.loan_credit_api.service.LoanInstallmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.loancredit.api.loan_credit_api.service.LoanService;
 import java.util.List;
@@ -40,21 +42,25 @@ public class LoanController {
 
     @GetMapping("/installments/loan/{loanId}")
     public String getInstallmentsByLoanId(@PathVariable Long loanId) {
-        // InstallmentService'i kullanarak taksitleri getir
         return "Installments for loan ID: " + loanId;
     }
 
     @GetMapping("/loans/{loanId}")
-    public String getLoan(@PathVariable Long loanId) {
-        // LoanService'i kullanarak krediyi getir
-        return "Loan details for loan ID: " + loanId;
+    public ResponseEntity<Loan> getLoan(@PathVariable Long loanId) {
+        Loan loan = loanService.getLoanById(loanId); // LoanService'i kullanarak krediyi getir
+
+        if (loan == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+
+        return ResponseEntity.ok(loan);
     }
 
-    @PostMapping("/create")
-    public Loan createLoan(@RequestParam Long customerId,
-                           @RequestParam Double amount,
-                           @RequestParam Double interestRate,
-                           @RequestParam Integer numberOfInstallments) {
+    @PostMapping("/create/{customerId}/{amount}/{interestRate}/{numberOfInstallments}")
+    public Loan createLoan(@PathVariable Long customerId,
+                           @PathVariable Double amount,
+                           @PathVariable Double interestRate,
+                           @PathVariable Integer numberOfInstallments) {
         return loanService.createLoan(customerId, amount, interestRate, numberOfInstallments);
     }
 }

@@ -5,6 +5,9 @@ import com.loancredit.api.loan_credit_api.model.Loan;
 import com.loancredit.api.loan_credit_api.model.LoanInstallment;
 import com.loancredit.api.loan_credit_api.repository.CustomerRepository;
 import com.loancredit.api.loan_credit_api.repository.LoanInstallmentRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.loancredit.api.loan_credit_api.repository.LoanRepository;
@@ -14,8 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class LoanService {
-
     @Autowired
     private LoanRepository loanRepository;
     @Autowired
@@ -25,6 +28,9 @@ public class LoanService {
     public List<Loan> getAllLoans() {
         return loanRepository.findAll();
     }
+    public Loan getLoanById(Long loanId) {
+        return loanRepository.findById(loanId).orElse(null);
+    }
 
     // Müşteri limit kontrolü
     public boolean hasEnoughLimit(Long customerId, Double amount) {
@@ -32,11 +38,12 @@ public class LoanService {
                 .orElseThrow(() -> new RuntimeException("Customer not found"));
 
         // Müşterinin kredi limitini al
-        Double creditLimit = customer.getCreditLimit();
+        Double creditLimit = customer.getCredit_limit();
 
         // Kredi limitinin yeterli olup olmadığını kontrol et
         return creditLimit != null && creditLimit >= amount;
     }
+
     public Loan createLoan(Long customerId, Double amount, Double interestRate, Integer numberOfInstallments) {
         // Kontroller
         if (!hasEnoughLimit(customerId, amount)) {
@@ -59,7 +66,7 @@ public class LoanService {
         LocalDate dueDate = LocalDate.now().plusMonths(1).withDayOfMonth(1); // İlk taksit için gelecek ayın 1. günü
 
         for (int i = 0; i < numberOfInstallments; i++) {
-            LoanInstallment installment = new LoanInstallment(loan.getId(), installmentAmount, dueDate, false);
+            LoanInstallment installment = new LoanInstallment(loan.getId(), installmentAmount, dueDate, false,loan);
             installments.add(installment);
             dueDate = dueDate.plusMonths(1); // Sonraki taksitin ödeme tarihi
         }

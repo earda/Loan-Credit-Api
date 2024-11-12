@@ -20,7 +20,7 @@ public class Customer {
     private Long customerId;
     private String name;
     private String surname;
-    private Double creditLimit;
-    private Double usedCreditLimit;
+    private Double credit_limit;
+    private Double used_credit_limit;
 
 }

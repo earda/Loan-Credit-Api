@@ -26,37 +26,39 @@ Loan-Credit-Api, müşteriler için kredi ve kredi taksit yönetimi sağlayan bi
 - `GET creditApi/loans`: Bütün kredi bilgilerini getirir.
 - `GET creditApi/installments/loan/{loanId}`: Belirtilen ID'ye sahip taksit tutarını getirir.
 
-###Proje yapısı bu şekildedir.
+### Proje yapısı bu şekildedir.
 
-├── .idea
-├── .mvn
-│   └── wrapper
-│       └── maven-wrapper.properties
-├── src
-│   └── main
-│       ├── java
-│       │   └── com.loancredit.api.loan_credit_api
-│       │       ├── controller
-│       │       │   └── LoanController
-│       │       ├── model
-│       │       │   ├── Customer
-│       │       │   ├── Loan
-│       │       │   └── LoanInstallment
-│       │       ├── repository
-│       │       │   ├── CustomerRepository
-│       │       │   ├── LoanInstallmentRepository
-│       │       │   └── LoanRepository
-│       │       └── service
-│       │           ├── LoanInstallmentService
-│       │           ├── LoanService
-│       │           └── LoanCreditApiApplication
-│       └── resources
-│           ├── static
-│           ├── templates
-│           ├── application.properties
-│           ├── data.sql
-│           └── schema.sql
-└── test
+## Proje Yapısı
+ 
+├── .idea  
+├── .mvn  
+│   └── wrapper  
+│       └── maven-wrapper.properties  
+├── src  
+│   └── main  
+│       ├── java  
+│       │   └── com.loancredit.api.loan_credit_api  
+│       │       ├── controller  
+│       │       │   └── LoanController.java  
+│       │       ├── model  
+│       │       │   ├── Customer.java  
+│       │       │   ├── Loan.java  
+│       │       │   └── LoanInstallment.java  
+│       │       ├── repository  
+│       │       │   ├── CustomerRepository.java  
+│       │       │   ├── LoanInstallmentRepository.java  
+│       │       │   └── LoanRepository.java  
+│       │       └── service  
+│       │           ├── LoanInstallmentService.java  
+│       │           ├── LoanService.java  
+│       │           └── LoanCreditApiApplication.java  
+│       └── resources  
+│           ├── static  
+│           ├── templates  
+│           ├── application.properties  
+│           ├── data.sql  
+│           └── schema.sql  
+└── test  
 
     • controller: API endpoint'lerini tanımlayan sınıfları içerir.
     • model: Customer, Loan, ve LoanInstallment gibi veri modellerini içerir.

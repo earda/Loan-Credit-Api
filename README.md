@@ -22,9 +22,13 @@ Loan-Credit-Api, müşteriler için kredi ve kredi taksit yönetimi sağlayan bi
 ###  Loan Controller
 
 - `GET creditApi/loans/{loanId}`: Belirtilen ID'ye sahip kredi bilgisini getirir.
+- Örnek; http://localhost:8080/creditApi/loans/1
 - `POST creditApi/create/{customerId}/{amount}/{interestRate}/{numberOfInstallments}`: Yeni bir kredi oluşturur.
+- Örnek; http://localhost:8080/creditApi/create/1/10000/0.15/6
 - `GET creditApi/loans`: Bütün kredi bilgilerini getirir.
+- Örnek; http://localhost:8080/creditApi/loans
 - `GET creditApi/installments/loan/{loanId}`: Belirtilen ID'ye sahip taksit tutarını getirir.
+- Örnek; http://localhost:8080/creditApi/installments/loan/1
 
 ### Proje yapısı bu şekildedir.
 
@@ -65,6 +69,14 @@ Loan-Credit-Api, müşteriler için kredi ve kredi taksit yönetimi sağlayan bi
     • repository: Veritabanı işlemleri için kullanılan repository arayüzlerini içerir.
     • service: İş mantığı katmanındaki işlemler için kullanılan sınıfları içerir.
     • resources: Uygulamanın yapılandırma dosyalarını (application.properties), veritabanı başlangıç dosyalarını (data.sql ve schema.sql), ve statik/şablon dosyalarını içerir. 
+
+
+# Projenin Kurulumu 
+1. Veritabanı bağlantılarını oluştur.
+2. Projeyi "git clone https://github.com/earda/Loan-Credit-Api.git" ile clonelayıp çalıştır.
+3. Endpointleri Postman üzerinden test et
+
+
 
 ### DATABASE 
 

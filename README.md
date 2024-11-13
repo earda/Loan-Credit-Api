@@ -26,7 +26,7 @@ Loan-Credit-Api, müşteriler için kredi ve kredi taksit yönetimi sağlayan bi
 - `GET creditApi/loans`: Bütün kredi bilgilerini getirir.
 - `GET creditApi/installments/loan/{loanId}`: Belirtilen ID'ye sahip taksit tutarını getirir.
 
-Proje yapısı bu şekildedir.
+###Proje yapısı bu şekildedir.
 
 ├── .idea
 ├── .mvn
@@ -64,7 +64,7 @@ Proje yapısı bu şekildedir.
     • service: İş mantığı katmanındaki işlemler için kullanılan sınıfları içerir.
     • resources: Uygulamanın yapılandırma dosyalarını (application.properties), veritabanı başlangıç dosyalarını (data.sql ve schema.sql), ve statik/şablon dosyalarını içerir. 
 
-DATABASE 
+### DATABASE 
 
 CREATE TABLE IF NOT EXISTS customer (
     id INT AUTO_INCREMENT PRIMARY KEY,

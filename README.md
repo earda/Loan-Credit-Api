@@ -69,40 +69,40 @@ Loan-Credit-Api, müşteriler için kredi ve kredi taksit yönetimi sağlayan bi
 ### DATABASE 
 
 CREATE TABLE IF NOT EXISTS customer (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255),
-    surname VARCHAR(255),
-    credit_limit DOUBLE,
-    used_credit_limit DOUBLE
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(255),
+surname VARCHAR(255),
+credit_limit DOUBLE,
+used_credit_limit DOUBLE
 );
 
 CREATE TABLE IF NOT EXISTS loan (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_id INT,
-    loan_amount DOUBLE,
-    interest_rate DOUBLE,
-    number_of_installments INT,
-    create_date DATE,
-    is_paid BOOLEAN,
-    FOREIGN KEY (customer_id) REFERENCES customer(id)
+id INT AUTO_INCREMENT PRIMARY KEY,
+customer_id INT,
+loan_amount DOUBLE,
+interest_rate DOUBLE,
+number_of_installments INT,
+create_date DATE,
+is_paid BOOLEAN,
+FOREIGN KEY (customer_id) REFERENCES customer(id)
 );
 
 CREATE TABLE IF NOT EXISTS loan_installment (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    loan_id INT,
-    amount DOUBLE,
-    paid_amount DOUBLE,
-    due_date INT,
-    payment_date DATE,
-    is_paid BOOLEAN,
-    FOREIGN KEY (loan_id) REFERENCES loan(id)
+id INT AUTO_INCREMENT PRIMARY KEY,
+loan_id INT,
+amount DOUBLE,
+paid_amount DOUBLE,
+due_date INT,
+payment_date DATE,
+is_paid BOOLEAN,
+FOREIGN KEY (loan_id) REFERENCES loan(id)
 );
 
-Bu scheme.sql dosyası bir H2 veritabanıdır ve in-memory çalışır. Bu sayede veriler RAM'de tutulur uygulama kapatıldığında hepsi bellekten silinir.
+##### Bu scheme.sql dosyası bir H2 veritabanıdır ve in-memory çalışır. Bu sayede veriler RAM'de tutulur uygulama kapatıldığında hepsi bellekten silinir.
 
-Şemayı oluşturduktan sonra içine veri ekleyelim.
+##### Şemayı oluşturduktan sonra içine veri ekleyelim.
 
-data.sql dosyamız;
+##### data.sql dosyamız;
 
 -- Customer tablosuna veri ekleme
 INSERT INTO PUBLIC.customer (id,name, surname, credit_limit, used_credit_limit)
@@ -128,7 +128,7 @@ VALUES (2, 500.00, 0.00, NULL,DATE '2024-11-10', FALSE);
 INSERT INTO PUBLIC.loan_installment (loan_id, amount, paid_amount, due_date, payment_date, is_paid)
 VALUES (3, 500.00, 0.00, NULL,DATE '2024-11-05', FALSE);
 
-localhost:8080/h2-console/login.jsp url ile veritabanımıza bir arayüz ile erişim sağlayabiliriz.
+##### localhost:8080/h2-console/login.jsp url ile veritabanımıza bir arayüz ile erişim sağlayabiliriz.
 
 
 

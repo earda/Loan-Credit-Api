@@ -116,5 +116,6 @@ VALUES (3, 500.00, 0.00, NULL,DATE '2024-11-05', FALSE);
 ```
 ##### localhost:8080/h2-console/login.jsp url ile veritabanımıza bir arayüz ile erişim sağlayabiliriz.
 
+![image](https://github.com/user-attachments/assets/b005b1eb-f856-466a-83cc-c57e8f2db70a)
 
 

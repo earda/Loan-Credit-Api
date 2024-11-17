@@ -23,10 +23,13 @@ Loan-Credit-Api, müşteriler için kredi ve kredi taksit yönetimi sağlayan bi
 
 - `GET creditApi/loans/{loanId}`: Belirtilen ID'ye sahip kredi bilgisini getirir.
 - Örnek; http://localhost:8080/creditApi/loans/1
+ 
 - `POST creditApi/create/{customerId}/{amount}/{interestRate}/{numberOfInstallments}`: Yeni bir kredi oluşturur.
 - Örnek; http://localhost:8080/creditApi/create/1/10000/0.15/6
+ 
 - `GET creditApi/loans`: Bütün kredi bilgilerini getirir.
 - Örnek; http://localhost:8080/creditApi/loans
+ 
 - `GET creditApi/installments/loan/{loanId}`: Belirtilen ID'ye sahip taksit tutarını getirir.
 - Örnek; http://localhost:8080/creditApi/installments/loan/1
 

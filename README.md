@@ -33,7 +33,7 @@ Loan-Credit-Api, müşteriler için kredi ve kredi taksit yönetimi sağlayan bi
 ### Proje yapısı bu şekildedir.
 
 ## Proje Yapısı
- 
+ ![projecttree](https://github.com/user-attachments/assets/39993910-8e15-4387-a10e-0b6e68efe4e0)
 ├── .idea  
 ├── .mvn  
 │   └── wrapper  

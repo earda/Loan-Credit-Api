@@ -46,7 +46,7 @@ Loan-Credit-Api, müşteriler için kredi ve kredi taksit yönetimi sağlayan bi
 
 
 # Projenin Kurulumu 
-1. Projeyi "git clone https://github.com/earda/Loan-Credit-Api.git" ile clonela.
+1. Projeyi "git clone https://github.com/earda/Loan-Credit-Api.git" ile klonla.
 2. Veritabanı bağlantılarını oluştur; Projemizdeki #resources# klasörünün altına data.sql ve scheme.sql adında iki sql dosyası oluşturuyoruz, içlerini dolduracağımız kodlar aşağıda DATABASE kısmındadır.
 3. Projeyi çalıştır.
 4. Endpointleri Postman üzerinden test et

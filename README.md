@@ -34,35 +34,6 @@ Loan-Credit-Api, müşteriler için kredi ve kredi taksit yönetimi sağlayan bi
 
 ## Proje Yapısı
  ![projecttree](https://github.com/user-attachments/assets/39993910-8e15-4387-a10e-0b6e68efe4e0)
-├── .idea  
-├── .mvn  
-│   └── wrapper  
-│       └── maven-wrapper.properties  
-├── src  
-│   └── main  
-│       ├── java  
-│       │   └── com.loancredit.api.loan_credit_api  
-│       │       ├── controller  
-│       │       │   └── LoanController.java  
-│       │       ├── model  
-│       │       │   ├── Customer.java  
-│       │       │   ├── Loan.java  
-│       │       │   └── LoanInstallment.java  
-│       │       ├── repository  
-│       │       │   ├── CustomerRepository.java  
-│       │       │   ├── LoanInstallmentRepository.java  
-│       │       │   └── LoanRepository.java  
-│       │       └── service  
-│       │           ├── LoanInstallmentService.java  
-│       │           ├── LoanService.java  
-│       │           └── LoanCreditApiApplication.java  
-│       └── resources  
-│           ├── static  
-│           ├── templates  
-│           ├── application.properties  
-│           ├── data.sql  
-│           └── schema.sql  
-└── test  
 
     • controller: API endpoint'lerini tanımlayan sınıfları içerir.
     • model: Customer, Loan, ve LoanInstallment gibi veri modellerini içerir.
@@ -80,6 +51,7 @@ Loan-Credit-Api, müşteriler için kredi ve kredi taksit yönetimi sağlayan bi
 
 ### DATABASE 
 
+```sql
 CREATE TABLE IF NOT EXISTS customer (
 id INT AUTO_INCREMENT PRIMARY KEY,
 name VARCHAR(255),
@@ -99,6 +71,7 @@ is_paid BOOLEAN,
 FOREIGN KEY (customer_id) REFERENCES customer(id)
 );
 
+
 CREATE TABLE IF NOT EXISTS loan_installment (
 id INT AUTO_INCREMENT PRIMARY KEY,
 loan_id INT,
@@ -109,13 +82,14 @@ payment_date DATE,
 is_paid BOOLEAN,
 FOREIGN KEY (loan_id) REFERENCES loan(id)
 );
-
+```
 ##### Bu scheme.sql dosyası bir H2 veritabanıdır ve in-memory çalışır. Bu sayede veriler RAM'de tutulur uygulama kapatıldığında hepsi bellekten silinir.
 
 ##### Şemayı oluşturduktan sonra içine veri ekleyelim.
 
 ##### data.sql dosyamız;
 
+```sql
 -- Customer tablosuna veri ekleme
 INSERT INTO PUBLIC.customer (id,name, surname, credit_limit, used_credit_limit)
 VALUES (1,'John', 'Doe', 10000.00, 5000.00);
@@ -139,7 +113,7 @@ INSERT INTO PUBLIC.loan_installment (loan_id, amount, paid_amount, due_date, pay
 VALUES (2, 500.00, 0.00, NULL,DATE '2024-11-10', FALSE);
 INSERT INTO PUBLIC.loan_installment (loan_id, amount, paid_amount, due_date, payment_date, is_paid)
 VALUES (3, 500.00, 0.00, NULL,DATE '2024-11-05', FALSE);
-
+```
 ##### localhost:8080/h2-console/login.jsp url ile veritabanımıza bir arayüz ile erişim sağlayabiliriz.
 
 

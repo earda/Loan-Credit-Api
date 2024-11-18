@@ -49,7 +49,7 @@ Loan-Credit-Api, müşteriler için kredi ve kredi taksit yönetimi sağlayan bi
     • resources: Uygulamanın yapılandırma dosyalarını (application.properties), veritabanı başlangıç dosyalarını (data.sql ve schema.sql), ve statik/şablon dosyalarını içerir. 
 
 
-# Projenin Kurulumu 
+## Projenin Kurulumu 
 1. Projeyi "git clone https://github.com/earda/Loan-Credit-Api.git" ile klonlayın.
 2. Veritabanı bağlantılarını oluşturun; Projemizdeki #resources# klasörünün altına data.sql ve scheme.sql adında iki sql dosyası oluşturuyoruz, içlerini dolduracağımız kodlar aşağıda DATABASE kısmındadır.
 3. Projeyi çalıştırın.
@@ -57,9 +57,9 @@ Loan-Credit-Api, müşteriler için kredi ve kredi taksit yönetimi sağlayan bi
 
 
 
-### H2 DATABASE 
+## H2 DATABASE 
 
-## scheme.sql
+##### scheme.sql
 ```sql
 CREATE TABLE IF NOT EXISTS customer (
 id INT AUTO_INCREMENT PRIMARY KEY,

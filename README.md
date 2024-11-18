@@ -57,7 +57,7 @@ Loan-Credit-Api, müşteriler için kredi ve kredi taksit yönetimi sağlayan bi
 
 
 
-### DATABASE 
+### H2 DATABASE 
 
 ## scheme.sql
 ```sql
